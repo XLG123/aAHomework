@@ -1,30 +1,46 @@
 class Stack
   def initialize
-    @ivar = []
+    @stack = []
   end
 
   def push(el)
-    @ivar << el
+    stack << el
+    self
   end
 
   def pop
-    @ivar.pop
+    stack.pop
   end
 
   def peek
-    @ivar.last
+    stack.last
   end
+
+  def size
+    stack.length
+  end
+
+  def empty?
+    stack.empty?
+  end
+
+  def inspect
+    "Stack size: #{self.size}"
+  end
+
+  private
+  attr_reader :stack
 end
 
 stack_1 = Stack.new
-stack_1.push("KKK")
-p stack_1.peek
-stack_1.push("KYK")
-p stack_1.peek
-stack_1.push("YYK")
-p stack_1.peek
-stack_1.push("YYY")
-p stack_1.peek
+p stack_1.push("KKK")
+# p stack_1.peek
+p stack_1.push("KYK")
+# p stack_1.peek
+p stack_1.push("YYK")
+# p stack_1.peek
+p stack_1.push("YYY")
+# p stack_1.peek
 
 puts
 

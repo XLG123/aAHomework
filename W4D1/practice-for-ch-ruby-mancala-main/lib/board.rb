@@ -39,16 +39,16 @@ class Board
       end
       
     end
-
+    
     render
     next_turn(cup_pos)
   end
 
   def next_turn(ending_cup_idx)
     # helper method to determine what #make_move returns
-    if @cups[ending_cup_idx].empty?
+    if @cups[ending_cup_idx] == 6 || @cups[ending_cup_idx] == 13 || @cups[ending_cup_idx].empty?
       return :switch
-    elsif ending_cup_idx == 6 || ending_cup_idx == 13
+    elsif ending_cup_idx.between?(0,5) || ending_cup_idx.between?(7,12)
       return :prompt
     else
       return ending_cup_idx

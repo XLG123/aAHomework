@@ -29,7 +29,7 @@ class Dessert
   end
 
   def heat!
-    @temp = 400
+    @temp = 400w
   end
 
   def eat(amount)

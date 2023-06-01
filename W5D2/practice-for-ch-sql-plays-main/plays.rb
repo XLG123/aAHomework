@@ -49,12 +49,22 @@ class Play
     SQL
   end
 
-  def find_by_title(title)
-    raise "#{self.title} not in database" unless self.id
+  def self.find_by_title(title)
     PlayDBConnection.instance.execute(<<-SQL, self.title)
       SELECT
         *
       FROM
-        
+        plays
+      WHERE
+        title = ?
+    SQL
+  end
+
+  def self.find_by_playwright(name)
+    raise "#{name} not in database" unless self.name
+    PlayDBConnection.instance.execute(<<-SQL, self.name)
+      SELECT
+
+    SQL
   end
 end
